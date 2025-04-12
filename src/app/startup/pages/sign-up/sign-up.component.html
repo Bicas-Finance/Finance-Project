@@ -1,0 +1,54 @@
+<div class="signup-container mat-elevation-z4">
+  <h2 class="signup-title">Create your account</h2>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <!-- Name -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Enter your name" />
+      <mat-error *ngIf="signUpForm.get('name')?.hasError('required')">
+        The name is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Surname -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Surname</mat-label>
+      <input matInput formControlName="surname" placeholder="Enter your surname" />
+      <mat-error *ngIf="signUpForm.get('surname')?.hasError('required')">
+        The surname is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- E-mail-->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" placeholder="ejemplo@correo.com" />
+      <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
+        The email is required.
+      </mat-error>
+      <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">
+        Enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="Enter your password"/>
+      <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
+        The password is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Register button-->
+    <button mat-raised-button color="primary" class="signup-button" [disabled]="signUpForm.invalid">
+      Register
+    </button>
+  </form>
+
+  <div class="signup-footer">
+    <p>¿Do you have an account? <a routerLink="/SignIn">Log in here</a></p>
+  </div>
+</div>
+

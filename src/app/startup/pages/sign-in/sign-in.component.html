@@ -1,0 +1,28 @@
+<div class="signIn-container mat-elevation-z4">
+  <h2 class="signIn-title">Log in to your account</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ emailLabel }}</mat-label>
+      <input matInput [(ngModel)]="email" name="email" placeholder="Enter your email" required />
+      <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ passwordLabel }}</mat-label>
+      <input matInput [(ngModel)]="password" name="password" type="password" placeholder="Enter your password" required />
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" class="signIn-button" type="submit">
+      Log In
+    </button>
+  </form>
+
+  <div class="signIn-footer">
+    <p>{{ registerText }} <a routerLink="/SignUp">Register here</a></p>
+  </div>
+</div>
+
